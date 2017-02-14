@@ -7,7 +7,15 @@
  */
 
 // Apply the java plugin to add support for Java
-apply plugin: 'java'
+plugins {
+    id 'org.springframework.boot' version '1.5.1.RELEASE'
+    id 'java'
+}
+
+jar {
+    baseName = 'parts-trading'
+    version = '0.0.1'
+}
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -17,10 +25,9 @@ repositories {
 }
 
 dependencies {
-    // The production code uses Guava
-    compile 'com.google.guava:guava:20.0'
+    compile 'org.springframework.boot:spring-boot-starter-web'
 
-    // Use JUnit test framework
     testCompile 'junit:junit:4.12'
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
 
